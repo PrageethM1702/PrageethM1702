@@ -15,7 +15,9 @@ I specialize in **robotics, machine learning, and computer vision**, with experi
 ---
 
 ## 📊 **GitHub Stats**  
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=PrageethM1702&show_icons=true&theme=dark)
+![GitHub Activity Graph](https://github-readme-activity-graph.cyclic.app/graph?username=PrageethM1702&theme=react-dark)
+
+![GitHub Metrics](https://github.com/PrageethM1702/github-metrics/blob/main/github-metrics.svg)
 
 ![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=PrageethM1702&theme=onedark)
 
