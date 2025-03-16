@@ -30,4 +30,4 @@ I specialize in **robotics, machine learning, and computer vision**, with experi
 
 ---
 
-⭐ **Thanks for visiting! Feel free to check out my projects.** 🚀
+**Thanks for visiting! Feel free to check out my projects.** 🚀
