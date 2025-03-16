@@ -15,15 +15,18 @@ I specialize in **robotics, machine learning, and computer vision**, with experi
 ---
 
 ## 📊 **GitHub Stats**  
+
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=PrageethM1702&theme=react-dark)
 
 ![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=PrageethM1702&theme=onedark)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=PrageethM1702&layout=compact&theme=dark)  
-
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=PrageethM1702&theme=dark)
 
-![Snake animation](https://github.com/PrageethM1702/PrageethM1702/blob/output/github-contribution-grid-snake.svg)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=PrageethM1702&show_icons=true&theme=dark&hide=prs,issues,contribs)
+
+![Advanced Lang Stats](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=PrageethM1702&theme=dark)
+![Most Used Langs](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=PrageethM1702&theme=dark)
+
 
 ---
 
