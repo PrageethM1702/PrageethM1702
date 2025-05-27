@@ -7,10 +7,16 @@ I specialize in **robotics, machine learning, and computer vision**, with experi
 ---
 
 ## 🔧 **Skills & Expertise**  
-- **Programming:** Python | C++ | MATLAB  
-- **AI & Machine Learning:** Neural Networks | Computer Vision | Pattern Recognition  
-- **Robotics & Embedded Systems:** ROS | PCB Design | Microcontrollers  
-- **Simulation & Design:** SOLIDWORKS | Ansys | MATLAB & Simulink | Altium | Keli uVision | KiCad 
+• Programming Languages - Python | C++ | MATLAB script 
+• Robotics Framework - Robotic Operating System (ROS) | Gazebo | V-REP 
+• AI & Machine Learning - | Neural Networks | Computer Vision | Pattern Recognition 
+• Electronics & Circuit Design - PCB design (All types) | Analog Circuit Design | Microcontrollers and 
+Embedded Systems 
+• Robotics & Automation - Soft Robotics | Bio-inspired Robotics | Swarm Robotics | Robotics | Autonomous 
+Systems   
+• Medical & Bioengineering - Medical Instrumentation | IoT in Healthcare | AI-Assisted Diagnostics | AI for 
+Medical Imaging 
+• Simulation & Design Tools - SOLIDWORKS | Ansys | MATLAB & Simulink | Altium | KiCad | VS Code 
 
 ---
 
