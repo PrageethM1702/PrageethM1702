@@ -8,27 +8,60 @@ I specialise in **robotics, machine learning, and computer vision**, with experi
 
 ## 🔧 Skills & Expertise
 
-### 👨‍💻 Programming Languages  
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" alt="Python"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="40" height="40" alt="C++"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" width="40" height="40" alt="MATLAB"/>
+---
 
-### 🤖 Robotics Frameworks & Simulation  
-<img src="https://raw.githubusercontent.com/ros-infrastructure/artwork/master/ros_logo_only.png" width="40" height="40" alt="ROS"/>  <img src="https://classic.gazebosim.org/media/images/gazebo_logo.svg" width="40" height="40" alt="Gazebo"/>  <img src="https://www.coppeliarobotics.com/images/coppelia_logo.png" width="40" height="40" alt="CoppeliaSim"/>
+### 👨‍💻 Programming Languages
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Embedded C](https://img.shields.io/badge/Embedded%20C-14354C?style=for-the-badge&logo=c&logoColor=white)
+![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
+![Verilog](https://img.shields.io/badge/Verilog/VHDL-EE3C42?style=for-the-badge&logo=verilog&logoColor=white)
 
-### 🧠 AI & Machine Learning  
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="40" height="40" alt="TensorFlow"/>   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40" height="40" alt="OpenCV"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Pattern_Recognition_Logo.png" width="40" height="40" alt="Pattern Recognition"/>
+---
 
-### 📟 Embedded Systems & Electronics  
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" width="40" height="40" alt="Arduino"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" width="40" height="40" alt="Raspberry Pi"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/KiCad_logo.svg" width="40" height="40" alt="KiCad"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Altium_Designer_Logo.svg" width="40" height="40" alt="Altium Designer"/>
+### 🧠 AI & Machine Learning
+![Neural Networks](https://img.shields.io/badge/Neural%20Networks-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Computer Vision](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![Pattern Recognition](https://img.shields.io/badge/Pattern%20Recognition-00B8D4?style=for-the-badge)
 
-### 🤖 Robotics & Automation  
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Soft_Robotics_Logo.png" width="40" height="40" alt="Soft Robotics"/> <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Bioinspired_Robotics_Logo.png" width="40" height="40" alt="Bio-inspired Robotics"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Swarm_Robotics_Logo.png" width="40" height="40" alt="Swarm Robotics"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Robotics_Logo.png" width="40" height="40" alt="Robotics"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Autonomous_Systems_Logo.png" width="40" height="40" alt="Autonomous Systems"/>
+---
 
-### 🧬 Medical & Bioengineering  
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Medical_Instrumentation_Logo.png" width="40" height="40" alt="Medical Instrumentation"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/IoT_in_Healthcare_Logo.png" width="40" height="40" alt="IoT in Healthcare"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/AI_Assisted_Diagnostics_Logo.png" width="40" height="40" alt="AI-Assisted Diagnostics"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/AI_for_Medical_Imaging_Logo.png" width="40" height="40" alt="AI for Medical Imaging"/>
+### 📟 Electronics & Circuit Design
+![PCB Design](https://img.shields.io/badge/PCB%20Design-0C3C26?style=for-the-badge&logo=kicad&logoColor=white)
+![Analog Circuits](https://img.shields.io/badge/Analog%20Circuit%20Design-FFA000?style=for-the-badge)
+![Microcontrollers](https://img.shields.io/badge/Microcontrollers-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Embedded Systems](https://img.shields.io/badge/Embedded%20Systems-E34F26?style=for-the-badge&logo=raspberrypi&logoColor=white)
 
-### 🧪 Simulation & Design Tools  
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/SOLIDWORKS_Logo.png" width="40" height="40" alt="SOLIDWORKS"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/MATLAB_Logo.png" width="40" height="40" alt="MATLAB"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Simulink_Logo.png" width="40" height="40" alt="Simulink"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Altium_Designer_Logo.png" width="40" height="40" alt="Altium Designer"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/KiCad_Logo.png" width="40" height="40" alt="KiCad"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/VS_Code_Logo.png" width="40" height="40" alt="VS Code"/>
+---
 
+### 🤖 Robotics & Automation
+![Soft Robotics](https://img.shields.io/badge/Soft%20Robotics-9C27B0?style=for-the-badge)
+![Bio-inspired Robotics](https://img.shields.io/badge/Bio--Inspired%20Robotics-FFC107?style=for-the-badge)
+![Swarm Robotics](https://img.shields.io/badge/Swarm%20Robotics-1E88E5?style=for-the-badge)
+![General Robotics](https://img.shields.io/badge/Robotics-3F51B5?style=for-the-badge)
+![Autonomous Systems](https://img.shields.io/badge/Autonomous%20Systems-2E7D32?style=for-the-badge&logo=nvidia&logoColor=white)
+![ROS](https://img.shields.io/badge/ROS-22314E?style=for-the-badge&logo=ros&logoColor=white)
+![Gazebo](https://img.shields.io/badge/Gazebo-6C8EBF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB2aWV3Qm94PSIwIDAgMzAgMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiLz48L3N2Zz4=&logoColor=white)
+<a href="https://www.coppeliarobotics.com/" target="_blank">
+  <img src="https://img.shields.io/badge/CoppeliaSim-Simulator-red?style=for-the-badge&logo=data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQqCgoCH/C05FVFNDQVBFMi4wAwEAAAAh+QQJZABPACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnH0HiHykAACH5BAkQAE8ALAAAAAAQABAAAAQy8MlJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu93DgfFADs=" alt="CoppeliaSim" height="28"/>
+</a>
+---
+
+### 🧬 Medical & Bioengineering
+![Medical Instrumentation](https://img.shields.io/badge/Medical%20Instrumentation-DD2C00?style=for-the-badge)
+![IoT in Healthcare](https://img.shields.io/badge/IoT%20in%20Healthcare-43A047?style=for-the-badge&logo=internetofthings&logoColor=white)
+![AI-Assisted Diagnostics](https://img.shields.io/badge/AI-Assisted%20Diagnostics-8E24AA?style=for-the-badge)
+![AI in Imaging](https://img.shields.io/badge/AI%20for%20Medical%20Imaging-0078D4?style=for-the-badge)
+
+---
+
+### 🧪 Simulation & Design Tools
+![SolidWorks](https://img.shields.io/badge/SOLIDWORKS-E60026?style=for-the-badge&logo=solidworks&logoColor=white)
+![Ansys](https://img.shields.io/badge/ANSYS-F8991D?style=for-the-badge)
+![MATLAB & Simulink](https://img.shields.io/badge/MATLAB%20%26%20Simulink-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)
+![KiCad](https://img.shields.io/badge/KiCad-314CB6?style=for-the-badge&logo=kicad&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 
 ---
 
