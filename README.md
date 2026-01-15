@@ -13,7 +13,6 @@
 ### 👋 Hi, I’m Prageeth  
 **Robotics Scientist** working on **humanoid robots, legged systems, neural control architectures, and embodied intelligence.**  
 
-> I don’t program robots. I architect **intelligence in physical form.**
 
 ---
 
@@ -48,13 +47,7 @@
 
 ---
 
-## 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=PrageethM1702&theme=tokyonight&show_icons=true&hide_border=true&count_private=true)
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=PrageethM1702&theme=tokyonight&show_icons=true&hide_border=true&layout=compact)
-
-![GitHub Stats](https://streak-stats.demolab.com?user=PrageethM1702&theme=tokyonight&hide_border=true)
+[![My Awesome Stats](https://awesome-github-stats.azurewebsites.net/user-stats/PrageethM1702?cardType=level-alternate&theme=tokyonight&fontFamily=&preferLogin=false)](https://git.io/awesome-stats-card)
 
 ---
 
