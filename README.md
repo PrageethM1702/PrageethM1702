@@ -50,14 +50,11 @@
 
 ## 📊 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=PrageethM1702&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" width="48%"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=PrageethM1702&theme=tokyonight&hide_border=true" width="48%"/>
-</p>
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=PrageethM1702&theme=tokyonight&show_icons=true&hide_border=true&count_private=true)
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PrageethM1702&layout=compact&theme=tokyonight&hide_border=true" width="48%"/>
-</p>
+![GitHub Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=PrageethM1702&theme=tokyonight&show_icons=true&hide_border=true&layout=compact)
+
+![GitHub Stats](https://streak-stats.demolab.com?user=PrageethM1702&theme=tokyonight&hide_border=true)
 
 ---
 
