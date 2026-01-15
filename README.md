@@ -19,35 +19,18 @@
 ## 🧠 Research Domains
 
 - Humanoid Robotics  
-- Bio-Inspired Control Systems  
-- Embodied AI & Cognitive Robotics  
+- Bio-Inspired Robotics  
+- Embodied AI & Cognitive Robotics
+- Embedded Systems
+- Legged Robotics
+- Autonomous Systems
+- Soft Robotics
+- Space Robotics & Propulsion Systems
 
 ---
 
-## ⚙️ Skill Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=cpp,c,python,arduino,raspberrypi,linux,git,vscode&theme=dark" />
-</p>
-
-**Control & Intelligence**
-- Reinforcement Learning for robotics  
-- Behavior trees & state machines  
-- Sensor fusion & perception pipelines  
-
-**Embedded Systems**
-- Real-time motor control  
-- Servo & BLDC actuation  
-- Firmware design  
-
-**Electronics**
-- PCB design
-- Analog & digital circuit design  
-- Power electronics for robotics  
-
----
-
-| [![My Awesome Stats](https://awesome-github-stats.azurewebsites.net/user-stats/PrageethM1702?cardType=level-alternate&theme=tokyonight&preferLogin=false)](https://git.io/awesome-stats-card) | <img src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=PrageethM1702&layout=pie&theme=tokyonight" alt="Top Languages Pie" /> |
+[![My Awesome Stats](https://awesome-github-stats.azurewebsites.net/user-stats/PrageethM1702?cardType=level-alternate&theme=tokyonight&preferLogin=false)](https://git.io/awesome-stats-card)
+<img src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=PrageethM1702&layout=pie&theme=tokyonight" alt="Top Languages Pie" />
 
 
 ## 🌐 Connect
