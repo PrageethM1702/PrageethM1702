@@ -103,9 +103,6 @@ I build robots as **synthetic organisms.**
   <img src="https://github-readme-streak-stats.herokuapp.com?user=PrageethM1702&theme=tokyonight" />
 </p>
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=PrageethM1702&theme=onestar&no-frame=true&row=1" />
-</p>
 
 ---
 
