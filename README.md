@@ -13,7 +13,7 @@
 
 ---
 
-## 🧠 CORE IDENTITY
+
 
 > **Robotics Scientist focused on humanoids, legged systems, neural control, and embodied machine intelligence.**  
 > I study and engineer **how intelligence emerges in machines** through reflexes, perception, learning, and cognition.
