@@ -1,6 +1,6 @@
 <!-- Banner -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&text=Prageeth%20Madushankha&fontSize=55&fontAlignY=40&color=0:0f0c29,50:302b63,100:24243e&animation=fadeIn&desc=Robotics%20Scientist%20|%20Autonomous%20Intelligence%20Architect&descAlignY=65&descSize=18&fontColor=ffffff" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&text=Prageeth%20Madushankha&fontSize=55&fontAlignY=40&color=0:0f0c29,50:302b63,100:24243e&animation=fadeIn&desc=Robotics%20Researcher%20|%20Autonomous%20Intelligence%20Architect&descAlignY=65&descSize=18&fontColor=ffffff" />
 </p>
 
 <!-- Typing -->
@@ -11,7 +11,7 @@
 ---
 
 ### 👋 Hi, I’m Prageeth  
-**Robotics Scientist** working on **humanoid robots, legged systems, neural control architectures, and embodied intelligence.**  
+Researcher in robotics, focused on **humanoid robots, legged systems, neural control architectures and embodied intelligence.**  
 
 
 ---
