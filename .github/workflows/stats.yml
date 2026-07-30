@@ -23,9 +23,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # STATS_TOKEN is an optional personal access token with the "repo" scope.
+      # The default GITHUB_TOKEN is scoped to this repository alone, so without
+      # STATS_TOKEN the cards only count public repositories.
       - name: Generate cards
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
         run: python .github/scripts/gen_stats.py
 

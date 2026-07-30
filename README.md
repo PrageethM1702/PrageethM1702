@@ -32,7 +32,7 @@ over time. For me it is not just about doing projects, it is about understanding
 things deeply and using that to build something meaningful.
 
 Always happy to connect with people who are into robotics, AI, aerospace or just
-building cool and ambitious stuff 😁
+building cool and ambitious stuff 😁
 
 Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
 
@@ -126,8 +126,8 @@ Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
 <!-- Self-hosted cards, refreshed daily by .github/workflows/stats.yml.
      The public github-readme-stats instance is paused and serves 503. -->
 <p align="center">
-  <img src="./assets/stats.svg" alt="GitHub stats" height="210" />
-  <img src="./assets/top-langs.svg" alt="Languages by repository" height="210" />
+  <img src="./assets/stats.svg" alt="GitHub stats" height="190" />
+  <img src="./assets/top-langs.svg" alt="Languages by repository" height="190" />
 </p>
 
 <p align="center">

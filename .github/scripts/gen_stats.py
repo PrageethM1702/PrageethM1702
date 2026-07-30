@@ -94,8 +94,27 @@ def search_total(path):
         return 0
 
 
-def collect():
-    user = api(f"/users/{USER}")
+def list_repos():
+    """Prefer /user/repos, which includes private repos when the token is a PAT.
+
+    The Actions GITHUB_TOKEN is scoped to a single repository and cannot
+    enumerate the account, so fall back to the public listing.
+    """
+    if TOKEN:
+        try:
+            repos, page = [], 1
+            while True:
+                batch = _req("https://api.github.com/user/repos"
+                             f"?per_page=100&page={page}&affiliation=owner&visibility=all")
+                repos += batch
+                if len(batch) < 100:
+                    break
+                page += 1
+            if repos:
+                return repos, True
+        except urllib.error.HTTPError:
+            pass
+
     repos, page = [], 1
     while True:
         batch = api(f"/users/{USER}/repos?per_page=100&page={page}&type=owner")
@@ -103,8 +122,15 @@ def collect():
         if len(batch) < 100:
             break
         page += 1
+    return repos, False
+
+
+def collect():
+    user = api(f"/users/{USER}")
+    repos, saw_private = list_repos()
 
     owned = [r for r in repos if not r["fork"]]
+    private = sum(1 for r in owned if r.get("private"))
     created_year = int(user["created_at"][:4])
 
     # Count each repo's primary language rather than raw bytes: .ipynb files
@@ -128,6 +154,8 @@ def collect():
 
     return {
         "repos": len(owned),
+        "private": private,
+        "saw_private": saw_private,
         "stars": sum(r["stargazers_count"] for r in owned),
         "forks": sum(r["forks_count"] for r in owned),
         "followers": user.get("followers", 0),
@@ -172,16 +200,19 @@ def shell(w, h, title, subtitle):
 
 
 def stats_card(d):
-    w, h = 430, 210
+    w, h = 430, 190
+    repo_label = "REPOSITORIES"
+    if d["saw_private"] and d["private"]:
+        repo_label = f"REPOS ({d['private']} PRIVATE)"
     tiles = [
-        ("COMMITS", d["commits"]), ("REPOSITORIES", d["repos"]),
+        ("COMMITS", d["commits"]), (repo_label, d["repos"]),
         ("STARS EARNED", d["stars"]), ("FOLLOWERS", d["followers"]),
         ("ISSUES OPENED", d["issues"]), ("LANGUAGES", len(d["langs"])),
     ]
     out = [shell(w, h, "GITHUB STATS", f"{d['years']} yrs active")]
 
     cols, cw, ch = 3, 130, 62
-    x0, y0 = 20, 48
+    x0, y0 = 20, 46
     for i, (label, value) in enumerate(tiles):
         cx = x0 + (i % cols) * (cw + 5)
         cy = y0 + (i // cols) * (ch + 8)
@@ -192,8 +223,6 @@ def stats_card(d):
             f'<text x="{cx + 14}" y="{cy + 32}" class="num">{human(value)}</text>'
             f'<text x="{cx + 14}" y="{cy + 48}" class="lab">{label}</text></g>'
         )
-    out.append(f'<text x="20" y="{h - 12}" class="sub">'
-               f'Generated daily from the GitHub API</text>')
     return "".join(out) + "</svg>"
 
 
@@ -201,7 +230,7 @@ def langs_card(d, top=6):
     langs = d["langs"][:top]
     total = sum(v for _, v in d["langs"]) or 1
     w = 430
-    h = 210
+    h = 190
     out = [shell(w, h, "LANGUAGES", f"{d['repos']} repositories")]
 
     # stacked summary bar
@@ -211,11 +240,10 @@ def langs_card(d, top=6):
         seg = bw * count / total
         color = LANG_COLORS.get(name, FALLBACK[i % len(FALLBACK)])
         out.append(f'<rect class="b" style="animation-delay:{i * .06:.2f}s" '
-                   f'x="{x:.1f}" y="46" width="{seg:.1f}" height="9" fill="{color}"/>')
+                   f'x="{x:.1f}" y="44" width="{seg:.1f}" height="9" fill="{color}"/>')
         x += seg
-    out.append(f'<rect x="{bx}" y="46" width="{bw}" height="9" rx="4.5" fill="none"/>')
 
-    y = 82
+    y = 76
     for i, (name, count) in enumerate(langs):
         pct = count / total * 100
         color = LANG_COLORS.get(name, FALLBACK[i % len(FALLBACK)])
@@ -226,9 +254,7 @@ def langs_card(d, top=6):
             f'<text x="{w - 20}" y="{y}" class="v" text-anchor="end">'
             f'{count} repo{"s" if count != 1 else ""} &#183; {pct:.0f}%</text></g>'
         )
-        y += 21
-    out.append(f'<text x="20" y="{h - 12}" class="sub">'
-               f'By primary language, not bytes, so notebooks do not skew it</text>')
+        y += 19
     return "".join(out) + "</svg>"
 
 
