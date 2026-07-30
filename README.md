@@ -112,9 +112,11 @@ Open to collaboration and freelance work.
 
 ### Stats
 
+<!-- Self-hosted cards, refreshed daily by .github/workflows/stats.yml.
+     The public github-readme-stats instance is rate-limited and returns 503. -->
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=PrageethM1702&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&title_color=7FB3E8&icon_color=7FB3E8&text_color=C8DCF5&bg_color=0D1526" alt="GitHub stats" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=PrageethM1702&layout=compact&langs_count=6&hide_border=true&title_color=7FB3E8&text_color=C8DCF5&bg_color=0D1526" alt="Top languages" height="165" />
+  <img src="./assets/stats.svg" alt="GitHub stats" height="195" />
+  <img src="./assets/top-langs.svg" alt="Languages by repository" height="195" />
 </p>
 
 <p align="center">
