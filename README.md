@@ -124,10 +124,14 @@ Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
 ### Stats
 
 <!-- Self-hosted cards, refreshed daily by .github/workflows/stats.yml.
-     The public github-readme-stats instance is rate-limited and returns 503. -->
+     The public github-readme-stats instance is paused and serves 503. -->
 <p align="center">
-  <img src="./assets/stats.svg" alt="GitHub stats" height="195" />
-  <img src="./assets/top-langs.svg" alt="Languages by repository" height="195" />
+  <img src="./assets/stats.svg" alt="GitHub stats" height="210" />
+  <img src="./assets/top-langs.svg" alt="Languages by repository" height="210" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=PrageethM1702&hide_border=true&background=0D1526&stroke=1E3153&ring=7FB3E8&fire=7FB3E8&currStreakLabel=7FB3E8&sideLabels=C8DCF5&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=6E88AB" alt="Contribution streak" height="190" />
 </p>
 
 <p align="center">
