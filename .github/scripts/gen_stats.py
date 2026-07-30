@@ -19,11 +19,13 @@ USER = os.environ.get("GH_USER", "PrageethM1702")
 TOKEN = os.environ.get("GITHUB_TOKEN")
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "assets")
 
-BG = "#0D1526"
-PANEL = "#132038"
-ACCENT = "#7FB3E8"
-TEXT = "#C8DCF5"
-MUTED = "#6E88AB"
+# tokyonight, matching the github-readme-stats theme of the same name
+BG = "#1a1b27"
+PANEL = "#20222f"
+ACCENT = "#70a5fd"
+ICON = "#bf91f3"
+TEXT = "#38bdae"
+MUTED = "#7982a9"
 
 LANG_COLORS = {
     "Python": "#3572A5", "Jupyter Notebook": "#DA5B0B", "MATLAB": "#e16737",
@@ -152,16 +154,34 @@ def collect():
         prs = search_total(f"issues?q=author:{USER}+type:pr")
         issues = search_total(f"issues?q=author:{USER}+type:issue")
 
+    stars = sum(r["stargazers_count"] for r in owned)
+    followers = user.get("followers", 0)
+
+    reviews = 0
+    if TOKEN:
+        try:
+            reviews = graphql(
+                "query($l:String!){user(login:$l){contributionsCollection"
+                "{totalPullRequestReviewContributions}}}", {"l": USER}
+            )["user"]["contributionsCollection"]["totalPullRequestReviewContributions"]
+        except Exception:
+            reviews = 0
+
+    grade, percentile = calculate_rank(commits, prs, issues, reviews, stars, followers)
+
     return {
         "repos": len(owned),
         "private": private,
         "saw_private": saw_private,
-        "stars": sum(r["stargazers_count"] for r in owned),
+        "stars": stars,
         "forks": sum(r["forks_count"] for r in owned),
-        "followers": user.get("followers", 0),
+        "followers": followers,
         "commits": commits,
         "prs": prs,
         "issues": issues,
+        "reviews": reviews,
+        "grade": grade,
+        "percentile": percentile,
         "years": max(1, dt.datetime.now(dt.timezone.utc).year - created_year + 1),
         "langs": sorted(langs.items(), key=lambda kv: (-kv[1], kv[0])),
     }
@@ -174,33 +194,67 @@ def shell(w, h, title, subtitle):
         f'<title>{esc(title)}</title>'
         f'<defs>'
         f'<linearGradient id="edge" x1="0" y1="0" x2="0" y2="1">'
-        f'<stop offset="0" stop-color="{ACCENT}"/><stop offset="1" stop-color="#3E5C8A"/>'
+        f'<stop offset="0" stop-color="{ACCENT}"/><stop offset="1" stop-color="{ICON}"/>'
         f'</linearGradient>'
         f'<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">'
-        f'<stop offset="0" stop-color="#16233c"/><stop offset="1" stop-color="{BG}"/>'
+        f'<stop offset="0" stop-color="#222434"/><stop offset="1" stop-color="{BG}"/>'
+        f'</linearGradient>'
+        f'<linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">'
+        f'<stop offset="0" stop-color="{ACCENT}"/><stop offset="1" stop-color="{ICON}"/>'
         f'</linearGradient>'
         f'</defs>'
         f'<style>'
         f'.ti{{font:700 15px "Segoe UI",Ubuntu,sans-serif;fill:{ACCENT};letter-spacing:.5px}}'
         f'.sub{{font:400 10px "Segoe UI",Ubuntu,sans-serif;fill:{MUTED}}}'
-        f'.num{{font:700 21px "Segoe UI",Ubuntu,sans-serif;fill:#fff}}'
-        f'.lab{{font:400 9.5px "Segoe UI",Ubuntu,sans-serif;fill:{MUTED};letter-spacing:.6px}}'
+        f'.num{{font:700 19px "Segoe UI",Ubuntu,sans-serif;fill:#fff}}'
+        f'.lab{{font:400 9px "Segoe UI",Ubuntu,sans-serif;fill:{MUTED};letter-spacing:.6px}}'
         f'.k{{font:400 12.5px "Segoe UI",Ubuntu,sans-serif;fill:{TEXT}}}'
         f'.v{{font:700 12.5px "Segoe UI",Ubuntu,sans-serif;fill:#fff}}'
+        f'.gr{{font:700 30px "Segoe UI",Ubuntu,sans-serif;fill:{ACCENT}}}'
         f'@keyframes fi{{from{{opacity:0;transform:translateY(6px)}}to{{opacity:1;transform:translateY(0)}}}}'
         f'.r{{animation:fi .5s ease-out both}}'
         f'@keyframes gw{{from{{width:0}}}}'
         f'.b{{animation:gw .9s cubic-bezier(.2,.8,.2,1) both}}'
+        f'@keyframes dash{{from{{stroke-dashoffset:var(--c)}}}}'
+        f'.ring{{animation:dash 1.1s ease-out both}}'
         f'</style>'
-        f'<rect width="{w}" height="{h}" rx="12" fill="url(#sheen)" stroke="#1E3153"/>'
+        f'<rect width="{w}" height="{h}" rx="12" fill="url(#sheen)" stroke="#2a2e45"/>'
         f'<rect x="0" y="12" width="3" height="26" rx="1.5" fill="url(#edge)"/>'
         f'<text x="20" y="30" class="ti">{esc(title)}</text>'
         f'<text x="{w - 20}" y="30" class="sub" text-anchor="end">{esc(subtitle)}</text>'
     )
 
 
+def exponential_cdf(x):
+    return 1 - 2 ** -x
+
+
+def log_normal_cdf(x):
+    return x / (1 + x)
+
+
+def calculate_rank(commits, prs, issues, reviews, stars, followers):
+    """Port of github-readme-stats src/calculateRank.js so the grade is comparable."""
+    weights = [
+        (2, exponential_cdf, commits / 1000),
+        (3, exponential_cdf, prs / 50),
+        (1, exponential_cdf, issues / 25),
+        (1, exponential_cdf, reviews / 2),
+        (4, log_normal_cdf, stars / 50),
+        (1, log_normal_cdf, followers / 10),
+    ]
+    total_w = sum(w for w, _, _ in weights)
+    score = sum(w * fn(v) for w, fn, v in weights) / total_w
+    pct = (1 - score) * 100
+
+    thresholds = [1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100]
+    levels = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C"]
+    grade = next(l for t, l in zip(thresholds, levels) if pct <= t)
+    return grade, pct
+
+
 def stats_card(d):
-    w, h = 430, 190
+    w, h = 470, 215
     repo_label = "REPOSITORIES"
     if d["saw_private"] and d["private"]:
         repo_label = f"REPOS ({d['private']} PRIVATE)"
@@ -211,26 +265,43 @@ def stats_card(d):
     ]
     out = [shell(w, h, "GITHUB STATS", f"{d['years']} yrs active")]
 
-    cols, cw, ch = 3, 130, 62
-    x0, y0 = 20, 46
+    cols, cw, ch = 2, 115, 48
+    x0, y0 = 20, 48
     for i, (label, value) in enumerate(tiles):
-        cx = x0 + (i % cols) * (cw + 5)
-        cy = y0 + (i // cols) * (ch + 8)
+        cx = x0 + (i % cols) * (cw + 6)
+        cy = y0 + (i // cols) * (ch + 6)
         out.append(
             f'<g class="r" style="animation-delay:{i * .07:.2f}s">'
             f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="8" '
-            f'fill="{PANEL}" stroke="#1E3153"/>'
-            f'<text x="{cx + 14}" y="{cy + 32}" class="num">{human(value)}</text>'
-            f'<text x="{cx + 14}" y="{cy + 48}" class="lab">{label}</text></g>'
+            f'fill="{PANEL}" stroke="#2a2e45"/>'
+            f'<text x="{cx + 12}" y="{cy + 26}" class="num">{human(value)}</text>'
+            f'<text x="{cx + 12}" y="{cy + 40}" class="lab">{label}</text></g>'
         )
+
+    # Rank ring. Fill reflects standing, so a lower percentile fills more.
+    grade, pct = d["grade"], d["percentile"]
+    cx, cy, rad = 375, 122, 46
+    circ = 2 * 3.14159265 * rad
+    filled = circ * max(0.02, (100 - pct) / 100)
+    out.append(
+        f'<g transform="translate({cx},{cy})">'
+        f'<circle r="{rad}" fill="none" stroke="#2a2e45" stroke-width="7"/>'
+        f'<circle class="ring" style="--c:{circ:.1f}" r="{rad}" fill="none" '
+        f'stroke="url(#ring)" stroke-width="7" stroke-linecap="round" '
+        f'stroke-dasharray="{filled:.1f} {circ - filled:.1f}" '
+        f'transform="rotate(-90)"/>'
+        f'<text y="4" class="gr" text-anchor="middle">{esc(grade)}</text>'
+        f'<text y="22" class="lab" text-anchor="middle">TOP {pct:.1f}%</text>'
+        f'</g>'
+    )
     return "".join(out) + "</svg>"
 
 
 def langs_card(d, top=6):
     langs = d["langs"][:top]
     total = sum(v for _, v in d["langs"]) or 1
-    w = 430
-    h = 190
+    w = 470
+    h = 215
     out = [shell(w, h, "LANGUAGES", f"{d['repos']} repositories")]
 
     # stacked summary bar
@@ -243,7 +314,7 @@ def langs_card(d, top=6):
                    f'x="{x:.1f}" y="44" width="{seg:.1f}" height="9" fill="{color}"/>')
         x += seg
 
-    y = 76
+    y = 82
     for i, (name, count) in enumerate(langs):
         pct = count / total * 100
         color = LANG_COLORS.get(name, FALLBACK[i % len(FALLBACK)])
@@ -254,7 +325,7 @@ def langs_card(d, top=6):
             f'<text x="{w - 20}" y="{y}" class="v" text-anchor="end">'
             f'{count} repo{"s" if count != 1 else ""} &#183; {pct:.0f}%</text></g>'
         )
-        y += 19
+        y += 22
     return "".join(out) + "</svg>"
 
 
@@ -267,4 +338,5 @@ if __name__ == "__main__":
             f.write(svg)
         print("wrote", fname)
     print(f"commits={data['commits']} repos={data['repos']} stars={data['stars']} "
-          f"issues={data['issues']} langs={len(data['langs'])}")
+          f"issues={data['issues']} langs={len(data['langs'])} "
+          f"rank={data['grade']} (top {data['percentile']:.1f}%)")
