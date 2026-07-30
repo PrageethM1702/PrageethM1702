@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="Prageeth Madushankha — Robotics Engineer" width="100%" />
+  <img src="./assets/banner.png" alt="Prageeth Madushankha, Robotics Engineer" width="100%" />
 </p>
 
 <p align="center">
@@ -17,13 +17,24 @@
 
 ### About
 
-Robotics engineer based in **Kotte, Sri Lanka**, working freelance on Fiverr.
+I work on robotics and intelligent systems, mainly AI, embedded systems and
+spacecraft related engineering. I like getting my hands dirty building things
+and making them actually work in the real world instead of keeping everything
+in theory.
 
-I work on humanoid and legged systems — push recovery, whole body control and
-model predictive control — alongside embedded electronics and applied deep learning.
-I build in simulation first, log everything, and keep results reproducible.
+Most of my time goes into learning, testing ideas and figuring out how to make
+systems smarter, more efficient and more reliable. I enjoy both the small
+details and the bigger picture, from electronics and control to how everything
+comes together as a full system.
 
-Open to collaboration and freelance work.
+I am really into advanced system design and how intelligent machines can improve
+over time. For me it is not just about doing projects, it is about understanding
+things deeply and using that to build something meaningful.
+
+Always happy to connect with people who are into robotics, AI, aerospace or just
+building cool and ambitious stuff 😁
+
+Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
 
 <br />
 
