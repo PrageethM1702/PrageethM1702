@@ -65,6 +65,77 @@ def esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
+def fetch_calendar(created_year):
+    """Return {date: contribution_count} for the whole account history.
+
+    With a token the GraphQL calendar gives exact per-day counts across every
+    year. Without one, fall back to the public contributions HTML, which only
+    covers the trailing year and exposes activity levels rather than counts.
+    """
+    if TOKEN:
+        q = """query($login:String!,$from:DateTime!,$to:DateTime!){
+          user(login:$login){ contributionsCollection(from:$from,to:$to){
+            contributionCalendar{ weeks{ contributionDays{ date contributionCount }}}}}}"""
+        days = {}
+        for year in range(created_year, dt.datetime.now(dt.timezone.utc).year + 1):
+            cal = graphql(q, {
+                "login": USER,
+                "from": f"{year}-01-01T00:00:00Z",
+                "to": f"{year}-12-31T23:59:59Z",
+            })["user"]["contributionsCollection"]["contributionCalendar"]
+            for week in cal["weeks"]:
+                for day in week["contributionDays"]:
+                    days[day["date"]] = day["contributionCount"]
+        return days, True
+
+    import re
+    req = urllib.request.Request(
+        f"https://github.com/users/{USER}/contributions",
+        headers={"User-Agent": "profile-stats"},
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        html = r.read().decode("utf-8", "replace")
+    # Only the level (0 to 4) is exposed here, so treat it as presence.
+    days = {d: (1 if int(lvl) > 0 else 0)
+            for d, lvl in re.findall(
+                r'data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-level="(\d+)"', html)}
+    return days, False
+
+
+def streaks(days):
+    """Current streak, longest streak and active-day count."""
+    if not days:
+        return 0, 0, 0, None, None
+
+    ordered = sorted(days)
+    active = sum(1 for d in ordered if days[d] > 0)
+
+    longest = run = 0
+    best_end = run_start = None
+    best_start = best_endd = None
+    for d in ordered:
+        if days[d] > 0:
+            run += 1
+            if run == 1:
+                run_start = d
+            if run > longest:
+                longest, best_start, best_endd = run, run_start, d
+        else:
+            run = 0
+
+    # The current streak may legitimately end yesterday: today is still in play.
+    today = dt.datetime.now(dt.timezone.utc).date()
+    current = 0
+    cursor = today
+    if days.get(today.isoformat(), 0) == 0:
+        cursor = today - dt.timedelta(days=1)
+    while days.get(cursor.isoformat(), 0) > 0:
+        current += 1
+        cursor -= dt.timedelta(days=1)
+
+    return current, longest, active, best_start, best_endd
+
+
 def human(n):
     if n >= 1_000_000:
         return f"{n / 1_000_000:.1f}M".replace(".0M", "M")
@@ -169,7 +240,16 @@ def collect():
 
     grade, percentile = calculate_rank(commits, prs, issues, reviews, stars, followers)
 
+    calendar, exact_calendar = fetch_calendar(created_year)
+    cur_streak, longest_streak, active_days, best_start, best_end = streaks(calendar)
+
     return {
+        "current_streak": cur_streak,
+        "longest_streak": longest_streak,
+        "active_days": active_days,
+        "best_start": best_start,
+        "best_end": best_end,
+        "exact_calendar": exact_calendar,
         "repos": len(owned),
         "private": private,
         "saw_private": saw_private,
@@ -329,11 +409,62 @@ def langs_card(d, top=6):
     return "".join(out) + "</svg>"
 
 
+def streak_card(d):
+    w, h = 560, 165
+    cur, longest, active = d["current_streak"], d["longest_streak"], d["active_days"]
+    span = ""
+    if d["best_start"] and d["best_end"]:
+        fmt = lambda s: dt.date.fromisoformat(s).strftime("%d %b %Y")
+        span = fmt(d["best_start"]) if d["best_start"] == d["best_end"] else \
+            f'{fmt(d["best_start"])} to {fmt(d["best_end"])}'
+
+    scope = "all time" if d["exact_calendar"] else "past year"
+    out = [shell(w, h, "CONTRIBUTION STREAK", scope)]
+
+    third = w / 3
+    for i, (value, label, sub) in enumerate([
+        (active, "ACTIVE DAYS", ""),
+        (cur, "CURRENT STREAK", "days"),
+        (longest, "LONGEST STREAK", span),
+    ]):
+        cx = third * i + third / 2
+        if i == 1:
+            # Ring sits above the shared label baseline so the two never overlap.
+            rad, circ = 29, 2 * 3.14159265 * 29
+            frac = 0 if longest == 0 else min(1.0, cur / max(longest, 1))
+            filled = circ * max(0.02, frac)
+            out.append(
+                f'<g transform="translate({cx:.0f},86)">'
+                f'<circle r="{rad}" fill="none" stroke="#2a2e45" stroke-width="6"/>'
+                f'<circle class="ring" style="--c:{circ:.1f}" r="{rad}" fill="none" '
+                f'stroke="url(#ring)" stroke-width="6" stroke-linecap="round" '
+                f'stroke-dasharray="{filled:.1f} {circ - filled:.1f}" transform="rotate(-90)"/>'
+                f'<text y="8" class="gr" text-anchor="middle" '
+                f'style="font-size:24px">{value}</text></g>'
+                f'<text x="{cx:.0f}" y="132" class="lab" text-anchor="middle">{label}</text>'
+                f'<text x="{cx:.0f}" y="148" class="sub" text-anchor="middle">{esc(sub)}</text>'
+            )
+        else:
+            out.append(
+                f'<g class="r" style="animation-delay:{i * .1:.1f}s">'
+                f'<text x="{cx:.0f}" y="96" class="num" text-anchor="middle" '
+                f'style="font-size:26px">{human(value)}</text>'
+                f'<text x="{cx:.0f}" y="132" class="lab" text-anchor="middle">{label}</text>'
+                f'<text x="{cx:.0f}" y="148" class="sub" text-anchor="middle">{esc(sub)}</text>'
+                f'</g>'
+            )
+
+    for x in (third, third * 2):
+        out.append(f'<line x1="{x:.0f}" y1="52" x2="{x:.0f}" y2="152" stroke="#2a2e45"/>')
+    return "".join(out) + "</svg>"
+
+
 if __name__ == "__main__":
     data = collect()
     os.makedirs(OUT_DIR, exist_ok=True)
     for fname, svg in (("stats.svg", stats_card(data)),
-                       ("top-langs.svg", langs_card(data))):
+                       ("top-langs.svg", langs_card(data)),
+                       ("streak.svg", streak_card(data))):
         with open(os.path.join(OUT_DIR, fname), "w", encoding="utf-8") as f:
             f.write(svg)
         print("wrote", fname)

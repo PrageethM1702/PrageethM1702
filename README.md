@@ -131,7 +131,7 @@ Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=PrageethM1702&hide_border=true&background=1a1b27&stroke=2a2e45&ring=70a5fd&fire=bf91f3&currStreakLabel=70a5fd&sideLabels=38bdae&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=7982a9" alt="Contribution streak" height="190" />
+  <img src="./assets/streak.svg" alt="Contribution streak" width="60%" />
 </p>
 
 <p align="center">
