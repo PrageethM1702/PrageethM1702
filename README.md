@@ -21,8 +21,6 @@
 
 ### Currently
 
-- Bipedal push recovery with SRBD-MPC, closing the loop from capture point to joint torques
-- Hybrid reflex and cognition architectures for quadruped gait adaptation
 - Taking freelance robotics and embedded work on [Fiverr](https://www.fiverr.com/s/YRGqkLq)
 
 ### Selected Work
