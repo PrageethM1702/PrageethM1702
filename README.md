@@ -3,17 +3,82 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=19&pause=1200&color=bf91f3&center=true&vCenter=true&width=560&lines=Robotics+Engineer;Humanoid+%26+legged+locomotion;Model+predictive+control+%2B+whole+body+control;Freelance+robotics+engineer+on+Fiverr" alt="" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=19&pause=1200&color=bf91f3&center=true&vCenter=true&width=620&lines=Humanoid+%26+legged+locomotion;Model+predictive+control+%2B+whole+body+control;Embedded+firmware%2C+bare+metal+to+ROS;Freelance+robotics+engineer+on+Fiverr" alt="" />
 </p>
 
 <p align="center">
   <a href="mailto:prageethm1702@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
   <a href="https://www.linkedin.com/in/prageeth-m-77322b31b"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://www.fiverr.com/s/YRGqkLq"><img src="https://img.shields.io/badge/Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white" alt="Fiverr" /></a>
+  <a href="https://www.fiverr.com/s/YRGqkLq"><img src="https://img.shields.io/badge/Hire%20me-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white" alt="Fiverr" /></a>
   <img src="https://komarev.com/ghpvc/?username=PrageethM1702&style=for-the-badge&color=1a1b27&label=VIEWS" alt="Profile views" />
 </p>
 
 <br />
+
+> **I build robots that stay upright.** Humanoid and legged locomotion, whole body
+> control and model predictive control, down to the firmware on the microcontroller.
+> Based in Kotte, Sri Lanka, and available for freelance work.
+
+### Currently
+
+- Bipedal push recovery with SRBD-MPC, closing the loop from capture point to joint torques
+- Hybrid reflex and cognition architectures for quadruped gait adaptation
+- Taking freelance robotics and embedded work on [Fiverr](https://www.fiverr.com/s/YRGqkLq)
+
+### Selected Work
+
+| Project | What it does | Stack |
+| :--- | :--- | :--- |
+| **[Bipedal Walking and Push Recovery](https://github.com/PrageethM1702/Bipedal-Walking-and-Push-Recovery)** | A 12-DoF biped walks 1.2 m and stays upright under 25 N shoves from any direction, using capture-point balance control, a support-polygon margin, ankle/hip/stepping strategies and analytic leg IK. | `Python · PyBullet · Control` |
+| **[HRNS-Q: Hybrid Robotic Nervous System](https://github.com/PrageethM1702/HRNSQ---Hybrid_Robotic_Nervous_System_for_Quadrupeds-)** | Low-level reflex circuits paired with high-level AI cognition to study adaptive locomotion in quadruped robots. | `Python · CPG · Reinforcement Learning` |
+| **[Spine MRI Viewer](https://github.com/PrageethM1702/Spine-MRI-Viewer)** | Interactive medical imaging platform for multi-vendor MRI dataset exploration and cohort-level analysis. | `Python · Medical Imaging` |
+| **[4 kV Ion Thruster for CubeSats](https://github.com/PrageethM1702/Ion-Thruster)** | Design and simulation of a plasma-based ionic thruster, accelerating charged ions electrostatically for continuous low-thrust deep-space propulsion. | `Simulation · Space Systems` |
+
+### Core Stack
+
+**Languages**
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
+  <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white" alt="C" />
+  <img src="https://img.shields.io/badge/Embedded%20C-004482?style=for-the-badge&logo=c&logoColor=white" alt="Embedded C" />
+  <img src="https://img.shields.io/badge/x86%20ASM-0071C5?style=for-the-badge&logo=intel&logoColor=white" alt="x86 ASM" />
+  <img src="https://img.shields.io/badge/ARM%20ASM-0091BD?style=for-the-badge&logo=arm&logoColor=white" alt="ARM ASM" />
+  <img src="https://img.shields.io/badge/AVR%20ASM-3d59a1?style=for-the-badge" alt="AVR ASM" />
+  <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge" alt="MATLAB" />
+</p>
+
+**Robotics & Simulation**
+
+<p>
+  <img src="https://img.shields.io/badge/ROS-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS" />
+  <img src="https://img.shields.io/badge/Gazebo-FF6C00?style=for-the-badge" alt="Gazebo" />
+  <img src="https://img.shields.io/badge/PyBullet-2a4a7f?style=for-the-badge" alt="PyBullet" />
+  <img src="https://img.shields.io/badge/DART-2a4a7f?style=for-the-badge" alt="DART" />
+  <img src="https://img.shields.io/badge/CasADi-2a4a7f?style=for-the-badge" alt="CasADi" />
+  <img src="https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge" alt="Simulink" />
+</p>
+
+**Embedded & Hardware**
+
+<p>
+  <img src="https://img.shields.io/badge/STM32-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white" alt="STM32" />
+  <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32" />
+  <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino" />
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
+  <img src="https://img.shields.io/badge/KiCad-314CB0?style=for-the-badge&logo=kicad&logoColor=white" alt="KiCad" />
+  <img src="https://img.shields.io/badge/LTspice-900028?style=for-the-badge&logo=ltspice&logoColor=white" alt="LTspice" />
+</p>
+
+**Design, Analysis & ML**
+
+<p>
+  <img src="https://img.shields.io/badge/SOLIDWORKS-005386?style=for-the-badge&logo=dassaultsystemes&logoColor=white" alt="SOLIDWORKS" />
+  <img src="https://img.shields.io/badge/Ansys-FFB71B?style=for-the-badge&logo=ansys&logoColor=white" alt="Ansys" />
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" />
+</p>
 
 ### About
 
@@ -34,94 +99,7 @@ things deeply and using that to build something meaningful.
 Always happy to connect with people who are into robotics, AI, aerospace or just
 building cool and ambitious stuff 😁
 
-Based in **Kotte, Sri Lanka**. Available for freelance work on Fiverr.
-
-<br />
-
-### Skills
-
-**Robotics & Control**
-
-<p>
-  <img src="https://img.shields.io/badge/Humanoid%20Robots-3d59a1?style=for-the-badge" alt="Humanoid Robots" />
-  <img src="https://img.shields.io/badge/Legged%20Locomotion-3d59a1?style=for-the-badge" alt="Legged Locomotion" />
-  <img src="https://img.shields.io/badge/Whole%20Body%20Control%20(WBC)-3d59a1?style=for-the-badge" alt="Whole Body Control (WBC)" />
-  <img src="https://img.shields.io/badge/Model%20Predictive%20Control%20(MPC)-3d59a1?style=for-the-badge" alt="Model Predictive Control (MPC)" />
-  <img src="https://img.shields.io/badge/Inverse%20Dynamics-3d59a1?style=for-the-badge" alt="Inverse Dynamics" />
-  <img src="https://img.shields.io/badge/Control%20Systems-3d59a1?style=for-the-badge" alt="Control Systems" />
-  <img src="https://img.shields.io/badge/Control%20Algorithms-3d59a1?style=for-the-badge" alt="Control Algorithms" />
-  <img src="https://img.shields.io/badge/Gait%20Modulation-3d59a1?style=for-the-badge" alt="Gait Modulation" />
-  <img src="https://img.shields.io/badge/Quadruped%20Locomotion%20Modeling-3d59a1?style=for-the-badge" alt="Quadruped Locomotion Modeling" />
-  <img src="https://img.shields.io/badge/Central%20Pattern%20Generators%20(CPG)-3d59a1?style=for-the-badge" alt="Central Pattern Generators (CPG)" />
-  <img src="https://img.shields.io/badge/Bio--Inspired%20Robotics-3d59a1?style=for-the-badge" alt="Bio-Inspired Robotics" />
-  <img src="https://img.shields.io/badge/Soft%20Robotics-3d59a1?style=for-the-badge" alt="Soft Robotics" />
-  <img src="https://img.shields.io/badge/Hardware%20Reflex%20Circuits-3d59a1?style=for-the-badge" alt="Hardware Reflex Circuits" />
-  <img src="https://img.shields.io/badge/Robotics-3d59a1?style=for-the-badge" alt="Robotics" />
-  <img src="https://img.shields.io/badge/Mechatronics-3d59a1?style=for-the-badge" alt="Mechatronics" />
-</p>
-
-**Simulation & Modelling**
-
-<p>
-  <img src="https://img.shields.io/badge/ROS-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS" />
-  <img src="https://img.shields.io/badge/Gazebo-FF6C00?style=for-the-badge" alt="Gazebo" />
-  <img src="https://img.shields.io/badge/PyBullet-2a4a7f?style=for-the-badge" alt="PyBullet" />
-  <img src="https://img.shields.io/badge/DART-2a4a7f?style=for-the-badge" alt="DART" />
-  <img src="https://img.shields.io/badge/CasADi-2a4a7f?style=for-the-badge" alt="CasADi" />
-  <img src="https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge" alt="Simulink" />
-  <img src="https://img.shields.io/badge/Ansys-FFB71B?style=for-the-badge&logo=ansys&logoColor=white" alt="Ansys" />
-  <img src="https://img.shields.io/badge/SOLIDWORKS-005386?style=for-the-badge&logo=dassaultsystemes&logoColor=white" alt="SOLIDWORKS" />
-  <img src="https://img.shields.io/badge/Mathematical%20Modeling-2a4a7f?style=for-the-badge" alt="Mathematical Modeling" />
-</p>
-
-**Languages**
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge" alt="MATLAB" />
-</p>
-
-**AI & Machine Learning**
-
-<p>
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
-  <img src="https://img.shields.io/badge/Deep%20Learning-6b4fa0?style=for-the-badge" alt="Deep Learning" />
-  <img src="https://img.shields.io/badge/Machine%20Learning-6b4fa0?style=for-the-badge" alt="Machine Learning" />
-  <img src="https://img.shields.io/badge/Neural%20Networks-6b4fa0?style=for-the-badge" alt="Neural Networks" />
-  <img src="https://img.shields.io/badge/Reinforcement%20Learning-6b4fa0?style=for-the-badge" alt="Reinforcement Learning" />
-  <img src="https://img.shields.io/badge/Artificial%20Intelligence-6b4fa0?style=for-the-badge" alt="Artificial Intelligence" />
-  <img src="https://img.shields.io/badge/Computer%20Vision-6b4fa0?style=for-the-badge" alt="Computer Vision" />
-  <img src="https://img.shields.io/badge/Digital%20Image%20Processing-6b4fa0?style=for-the-badge" alt="Digital Image Processing" />
-  <img src="https://img.shields.io/badge/Signal%20Processing-6b4fa0?style=for-the-badge" alt="Signal Processing" />
-  <img src="https://img.shields.io/badge/Decision--Making%20Algorithms-6b4fa0?style=for-the-badge" alt="Decision-Making Algorithms" />
-</p>
-
-**Embedded & Electronics**
-
-<p>
-  <img src="https://img.shields.io/badge/STM32-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white" alt="STM32" />
-  <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32" />
-  <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino" />
-  <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
-  <img src="https://img.shields.io/badge/LTspice-900028?style=for-the-badge&logo=ltspice&logoColor=white" alt="LTspice" />
-  <img src="https://img.shields.io/badge/Embedded%20Systems-2d7a72?style=for-the-badge" alt="Embedded Systems" />
-  <img src="https://img.shields.io/badge/Electronics-2d7a72?style=for-the-badge" alt="Electronics" />
-  <img src="https://img.shields.io/badge/Digital%20Electronics-2d7a72?style=for-the-badge" alt="Digital Electronics" />
-  <img src="https://img.shields.io/badge/Analog%20Circuit%20Design-2d7a72?style=for-the-badge" alt="Analog Circuit Design" />
-  <img src="https://img.shields.io/badge/PCB%20Design-2d7a72?style=for-the-badge" alt="PCB Design" />
-</p>
-
-**Space Systems**
-
-<p>
-  <img src="https://img.shields.io/badge/Space%20Systems-414868?style=for-the-badge" alt="Space Systems" />
-  <img src="https://img.shields.io/badge/CubeSat%20Systems-414868?style=for-the-badge" alt="CubeSat Systems" />
-</p>
-
-<br />
-
-### Stats
+### Metrics
 
 <!-- Self-hosted cards, refreshed daily by .github/workflows/stats.yml.
      The public github-readme-stats instance is paused and serves 503. -->
