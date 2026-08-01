@@ -102,8 +102,8 @@ building cool and ambitious stuff 😁
 <!-- Self-hosted cards, refreshed daily by .github/workflows/stats.yml.
      The public github-readme-stats instance is paused and serves 503. -->
 <p align="center">
-  <img src="./assets/stats.svg" alt="GitHub stats" height="215" />
-  <img src="./assets/top-langs.svg" alt="Languages by repository" height="215" />
+  <img src="./assets/stats.svg" alt="GitHub stats" height="250" />
+  <img src="./assets/top-langs.svg" alt="Languages by repository" height="250" />
 </p>
 
 <p align="center">

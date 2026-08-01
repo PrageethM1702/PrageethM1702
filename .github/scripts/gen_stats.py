@@ -206,13 +206,17 @@ def collect():
     private = sum(1 for r in owned if r.get("private"))
     created_year = int(user["created_at"][:4])
 
-    # Count each repo's primary language rather than raw bytes: .ipynb files
-    # embed their cell output, so a byte-weighted split reads ~98% notebooks
-    # and hides everything else.
+    # Every language in every repo, weighted by how many repos use it rather
+    # than by raw bytes: .ipynb files embed their cell output, so a byte split
+    # reads ~97% notebooks and hides everything else.
     langs = {}
     for r in owned:
-        if r.get("language"):
-            langs[r["language"]] = langs.get(r["language"], 0) + 1
+        try:
+            names = list(api(f"/repos/{r['full_name']}/languages"))
+        except Exception:
+            names = [r["language"]] if r.get("language") else []
+        for name in names:
+            langs[name] = langs.get(name, 0) + 1
 
     if TOKEN:
         commits = all_time_commits(created_year)
@@ -334,7 +338,7 @@ def calculate_rank(commits, prs, issues, reviews, stars, followers):
 
 
 def stats_card(d):
-    w, h = 470, 215
+    w, h = 470, 250
     repo_label = "REPOSITORIES"
     if d["saw_private"] and d["private"]:
         repo_label = f"REPOS ({d['private']} PRIVATE)"
@@ -345,8 +349,8 @@ def stats_card(d):
     ]
     out = [shell(w, h, "GITHUB STATS", f"{d['years']} yrs active")]
 
-    cols, cw, ch = 2, 115, 48
-    x0, y0 = 20, 48
+    cols, cw, ch = 2, 115, 56
+    x0, y0 = 20, 52
     for i, (label, value) in enumerate(tiles):
         cx = x0 + (i % cols) * (cw + 6)
         cy = y0 + (i // cols) * (ch + 6)
@@ -360,7 +364,7 @@ def stats_card(d):
 
     # Rank ring. Fill reflects standing, so a lower percentile fills more.
     grade, pct = d["grade"], d["percentile"]
-    cx, cy, rad = 375, 122, 46
+    cx, cy, rad = 375, 143, 48
     circ = 2 * 3.14159265 * rad
     filled = circ * max(0.02, (100 - pct) / 100)
     out.append(
@@ -377,12 +381,12 @@ def stats_card(d):
     return "".join(out) + "</svg>"
 
 
-def langs_card(d, top=6):
-    langs = d["langs"][:top]
-    total = sum(v for _, v in d["langs"]) or 1
-    w = 470
-    h = 215
-    out = [shell(w, h, "LANGUAGES", f"{d['repos']} repositories")]
+def langs_card(d):
+    langs = d["langs"]
+    total = sum(v for _, v in langs) or 1
+    w, h = 470, 250
+    out = [shell(w, h, "LANGUAGES",
+                 f"{len(langs)} across {d['repos']} repos")]
 
     # stacked summary bar
     bx, bw = 20, w - 40
@@ -394,18 +398,22 @@ def langs_card(d, top=6):
                    f'x="{x:.1f}" y="44" width="{seg:.1f}" height="9" fill="{color}"/>')
         x += seg
 
-    y = 82
+    # Two columns so the full list fits without shrinking the type.
+    rows = (len(langs) + 1) // 2
+    col_w, y0, step = 195, 82, 23
     for i, (name, count) in enumerate(langs):
-        pct = count / total * 100
+        col, row = divmod(i, rows)
+        x = 20 + col * (col_w + 22)
+        y = y0 + row * step
         color = LANG_COLORS.get(name, FALLBACK[i % len(FALLBACK)])
         out.append(
-            f'<g class="r" style="animation-delay:{i * .07:.2f}s">'
-            f'<circle cx="26" cy="{y - 4}" r="4.5" fill="{color}"/>'
-            f'<text x="40" y="{y}" class="k">{esc(name)}</text>'
-            f'<text x="{w - 20}" y="{y}" class="v" text-anchor="end">'
-            f'{count} repo{"s" if count != 1 else ""} &#183; {pct:.0f}%</text></g>'
+            f'<g class="r" style="animation-delay:{i * .04:.2f}s">'
+            f'<circle cx="{x + 6}" cy="{y - 4}" r="4.5" fill="{color}"/>'
+            f'<text x="{x + 20}" y="{y}" class="k" style="font-size:11.5px">'
+            f'{esc(name)}</text>'
+            f'<text x="{x + col_w}" y="{y}" class="v" text-anchor="end" '
+            f'style="font-size:11.5px">{count}</text></g>'
         )
-        y += 22
     return "".join(out) + "</svg>"
 
 
